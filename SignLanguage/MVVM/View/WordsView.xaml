@@ -1,0 +1,193 @@
+﻿<UserControl x:Class="SignLanguage.MVVM.View.WordsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SignLanguage.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
+
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Margin" Value="15, 0, 0, 0"/>
+                </Style>
+            </StackPanel.Resources>
+
+            <Border CornerRadius="10"
+                    Padding="2"
+                    Height="150" Width="150"
+                    Margin="0">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#844eff" Offset="0" />
+                        <GradientStop Color="#4e99ff" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Button Command="{Binding ShowCollege}"
+                        FontSize="20"
+                        Content="Колледж"
+                        Style="{StaticResource WordsButtonTheme}"/>
+            </Border>
+
+            <Border CornerRadius="10"
+                    Padding="2"
+                    Height="150" Width="150">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#4e99ff" Offset="0" />
+                        <GradientStop Color="#4eff91" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Button Command="{Binding ShowFamily}"
+                        FontSize="20"
+                        Content="Семья"
+                        Style="{StaticResource WordsButtonTheme}"/>
+            </Border>
+
+            <Border CornerRadius="10"
+                    Padding="2"
+                    Height="150" Width="150">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#4eff91" Offset="0" />
+                        <GradientStop Color="#ffb73a" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Button Foreground="White"
+                             FontSize="20"
+                             Content="Для&#x0a;начинающих"
+                             Style="{StaticResource WordsButtonTheme}"/>
+            </Border>
+
+            <Border CornerRadius="10"
+                    Padding="2"
+                    Height="150" Width="150">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#ecff4e" Offset="0" />
+                        <GradientStop Color="#844eff" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Button FontSize="20"
+                        Content="Погода"
+                        Style="{StaticResource WordsButtonTheme}"/>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+
+            <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 15">
+                <TextBlock Text="Тема урока: "
+                           Style="{StaticResource SelectedColorForeground}"
+                           FontSize="20"/>
+
+                <TextBlock Text="{Binding GetContent}"
+                           Style="{StaticResource SelectedColorForeground}"
+                           FontSize="20"/>
+            </StackPanel>
+
+            <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                      SelectedIndex="{Binding GetSelectedIndex}"
+                      SelectionMode="Single"
+                      Height="auto"
+                      ItemsSource="{Binding WordsFamily}"
+                      SelectedItem="{Binding GetMedia}"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      Grid.Row="1"
+                      Visibility="{Binding GetFamily}"
+                      ItemContainerStyle="{StaticResource WordFamilyListViewItemTheme}">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="Transparent">
+                            <WrapPanel>
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </Grid>
+                            </WrapPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                      SelectedIndex="{Binding GetSelectedIndex}"
+                      SelectionMode="Single"
+                      Height="auto"
+                      ItemsSource="{Binding WordsCollege}"
+                      SelectedItem="{Binding GetMedia}"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      Grid.Row="1"
+                      Visibility="{Binding GetCollege}"
+                      ItemContainerStyle="{StaticResource WordFamilyListViewItemTheme}">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="Transparent">
+                            <WrapPanel>
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </Grid>
+                            </WrapPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+
+            <MediaElement Source="{Binding GetMedia.Media}"
+                          Height="250" Width="200"
+                          RenderTransformOrigin="0.5,0.5">
+                
+                <MediaElement.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </MediaElement.RenderTransform>
+            </MediaElement>
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                
+                <Button Content="Назад"
+                        Command="{Binding BackCommand}"
+                        Height="25" Width="100"
+                        Margin="0, 0, 15, 0"
+                        Style="{StaticResource ButtonTheme}"
+                        Visibility="{Binding HideButtonBack}"/>
+
+                <Button Content="Вперед"
+                        Command="{Binding NextCommand}"
+                        Height="25" Width="100"
+                        Style="{StaticResource ButtonTheme}"
+                        Visibility="{Binding HideButtonNext}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

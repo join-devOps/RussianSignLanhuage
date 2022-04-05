@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{77A5A403-AB7E-4098-9B1E-0E38C88527D2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SignLanguage.Images</RootNamespace>
+    <AssemblyName>SignLanguage.Images</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\15.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\17.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\18.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\19.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\20.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\23.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\25.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\28.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\30.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\31.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\10.jpg" />
+    <Resource Include="Images\11.jpg" />
+    <Resource Include="Images\24.jpg" />
+    <Resource Include="Images\26.jpg" />
+    <Resource Include="Images\27.jpg" />
+    <Resource Include="Images\29.jpg" />
+    <Resource Include="Images\4.jpg" />
+    <Resource Include="Images\8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\d_0.png" />
+    <Resource Include="Images\d_1.png" />
+    <Resource Include="Images\d_2.png" />
+    <Resource Include="Images\d_3.png" />
+    <Content Include="Media\Family\Bro.MOV" />
+    <Content Include="Media\Family\Dad.MOV" />
+    <Content Include="Media\Family\GrandDad.MOV" />
+    <Content Include="Media\Family\Grandmom.MOV" />
+    <Content Include="Media\Family\Mom.MOV" />
+    <Content Include="Media\Family\Sis.MOV" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

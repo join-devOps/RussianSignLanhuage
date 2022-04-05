@@ -1,0 +1,7 @@
+C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Images\bin\x86\Debug\SignLanguage.Images.dll
+C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Images\bin\x86\Debug\SignLanguage.Images.pdb
+C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Images\obj\x86\Debug\SignLanguage.Images.csproj.AssemblyReference.cache
+C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Images\obj\x86\Debug\SignLanguage.Images.g.resources
+C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Images\obj\x86\Debug\SignLanguage.Images.csproj.CoreCompileInputs.cache
+C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Images\obj\x86\Debug\SignLanguage.Images.dll
+C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Images\obj\x86\Debug\SignLanguage.Images.pdb

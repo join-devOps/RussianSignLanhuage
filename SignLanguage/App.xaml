@@ -1,0 +1,46 @@
+﻿<Application x:Class="SignLanguage.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SignLanguage"
+             xmlns:viewModel="clr-namespace:SignLanguage.MVVM.ViewModel"
+             xmlns:colors="clr-namespace:SignLanguage.MVVM.Model"
+             xmlns:view="clr-namespace:SignLanguage.MVVM.View"
+             StartupUri="MainWindow.xaml">
+    
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <colors:Themes DarkSource ="Theme/DarkColor.xaml"
+                               SnowSource ="Theme/SnowColor.xaml"/>
+                
+                <ResourceDictionary Source="Theme/SelectedTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:RussianAlphabetViewModel}">
+                <view:RussianAlphabetView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:WordsViewModel}">
+                <view:WordsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:TestViewModel}">
+                <view:TestView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:SettingViewModel}">
+                <view:SettingView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:FactsViewModel}">
+                <view:FactsView/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
