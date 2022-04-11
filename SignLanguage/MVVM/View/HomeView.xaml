@@ -123,7 +123,7 @@
                         Background="#FFAABA23"
                         CornerRadius="10">
 
-                    <TextBlock Text="Погода"
+                    <TextBlock Text="Разработчик ПО&#x0a;Если&#x0a;Вы&#x0a;Программист"
                                Foreground="White"
                                FontSize="14"
                                HorizontalAlignment="Left"

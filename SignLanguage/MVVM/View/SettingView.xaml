@@ -34,12 +34,6 @@
 
                             <Setter Property="Background" Value="#22202f"/>
                         </Style.Setters>
-
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="{StaticResource MostColorIsSelected}"/>
-                            </Trigger>
-                        </Style.Triggers>
                     </Style>
                 </Button.Resources>
             </Button>
@@ -60,7 +54,7 @@
                                 </Setter.Value>
                             </Setter>
 
-                            <Setter Property="Background" Value="white"/>
+                            <Setter Property="Background" Value="LightGray"/>
                         </Style.Setters>
 
                         <Style.Triggers>
@@ -85,12 +79,14 @@
                            Margin="0, 0, 0, 20"/>
 
                 <RadioButton Content="Русский"
+                             Command="{Binding CommandRu}"
                              Height="50"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              IsChecked="True"/>
                 
                 <RadioButton Content="Английский"
+                             Command="{Binding CommandEn}"
                              Height="50"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"/>

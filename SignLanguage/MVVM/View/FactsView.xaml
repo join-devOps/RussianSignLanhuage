@@ -13,43 +13,135 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Интересные факты"
-                   HorizontalAlignment="Center"
-                   Style="{StaticResource SelectedColorForeground}"
-                   FontSize="28"
-                   Grid.ColumnSpan="2"
-                   VerticalAlignment="Top"/>
-        
         <StackPanel Orientation="Horizontal"
-                    Grid.Row="1" Grid.ColumnSpan="2"
+                    Grid.ColumnSpan="2"
                     HorizontalAlignment="Center">
 
-            <Image Width="200" 
-                   Source="pack://application:,,,/SignLanguage.Images;component/Images/d_0.png"/>
-            
-            <Image Width="200" 
-                   Source="pack://application:,,,/SignLanguage.Images;component/Images/d_1.png"/>
-            
-            <Image Width="200" 
-                   Source="pack://application:,,,/SignLanguage.Images;component/Images/d_2.png"/>
-            
-            <Image Width="200" 
-                   Source="pack://application:,,,/SignLanguage.Images;component/Images/d_3.png"/>
+            <Border CornerRadius="10"
+                    Padding="2"
+                    Height="45" Width="150"
+                    Margin="0, 0, 15, 0">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#844eff" Offset="0" />
+                        <GradientStop Color="#4e99ff" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Button Command="{Binding ShowDuel}"
+                        FontSize="20"
+                        Content="Дуэль"
+                        Style="{StaticResource WordsButtonTheme}"/>
+            </Border>
+
+            <Border CornerRadius="10"
+                    Padding="2"
+                    Height="45" Width="150"
+                    Margin="0, 0, 15, 0">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#844eff" Offset="0" />
+                        <GradientStop Color="#4e99ff" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Button Command="{Binding ShowFact}"
+                        FontSize="20"
+                        Content="Факт"
+                        Style="{StaticResource WordsButtonTheme}"/>
+            </Border>
+
+            <Border CornerRadius="10"
+                    Padding="2"
+                    Height="45" Width="150"
+                    Margin="0, 0, 15, 0">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#844eff" Offset="0" />
+                        <GradientStop Color="#4e99ff" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Button Command="{Binding ShowHelp}"
+                        FontSize="20"
+                        Content="Сайты"
+                        Style="{StaticResource WordsButtonTheme}"/>
+            </Border>
         </StackPanel>
 
-        <TextBlock Text="Красочный город Пятигорск, что на Кавказе, стал популярным курортом в
+        <StackPanel Grid.Row="2"
+                    Grid.RowSpan="2"
+                    Grid.ColumnSpan="2"
+                    Visibility="{Binding GetDuel}">
+            
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="2" Grid.ColumnSpan="2"
+                        HorizontalAlignment="Center">
+
+                <Image Width="200" 
+                   Source="pack://application:,,,/SignLanguage.Images;component/Images/d_0.png"/>
+
+                <Image Width="200" 
+                   Source="pack://application:,,,/SignLanguage.Images;component/Images/d_1.png"/>
+
+                <Image Width="200" 
+                   Source="pack://application:,,,/SignLanguage.Images;component/Images/d_2.png"/>
+
+                <Image Width="200" 
+                   Source="pack://application:,,,/SignLanguage.Images;component/Images/d_3.png"/>
+            </StackPanel>
+
+            <TextBlock Text="Красочный город Пятигорск, что на Кавказе, стал популярным курортом в
                    &#x0a;ещё дореволюционные времена. Да и сейчас он славится в первую очередь
                    &#x0a;именно в этом качестве, и множество людей ежегодно приезжает сюда
                    &#x0a;за чистым воздухом и целебными минеральными водами. При этом
                    &#x0a;Пятигорск представляет собой достаточно крупный современный город,
                    &#x0a;удобный для жизни, солнечный и обладающий довольно мягким климатом."
                    Grid.ColumnSpan="2"
-                   Grid.Row="2"
+                   Grid.Row="3"
                    Style="{StaticResource SelectedColorForeground}"
-                   FontSize="20"/>
+                   FontSize="18"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2"
+                    Grid.RowSpan="2"
+                    Grid.ColumnSpan="2"
+                    Visibility="{Binding GetFact}">
+
+            <TextBlock Text="1. Интонацию глухие заменяют мимикой лица. Поэтому их жестикуляция такая эмоциональная.
+                            &#x0a;А если они начинают ругаться, то скорость жестикуляции становится сумасшедшей.
+                            &#x0a;2. Глухие могут говорить, но не знают как, потому что никогда не слышали речь.
+                            &#x0a;3. Глухие используют в разговоре вместо имен - жестовое имя, это может быть 
+                            &#x0a;например Ангел, Седой или Козел. Эти имена происходят от особенностей человека, внешних или психологических.
+                            &#x0a;4. В качестве будильника они используют вибросигнал, а что бы понять, что в дверь звонят, по всей квартире 
+                            &#x0a;начинают мигать лампочки.
+                            &#x0a;5. Если глухой разговаривает во сне, он тоже жестикулирует и машет во сне руками.
+                            &#x0a;6. Если в семье родился глухой ребенок, то слышащие родители общаются с ним письменно
+                            &#x0a;или совсем на минимальном уровне."
+                       
+                       Style="{StaticResource SelectedColorForeground}"
+                       FontSize="18"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2"
+                    Grid.RowSpan="2"
+                    Grid.ColumnSpan="2"
+                    Visibility="{Binding GetHelp}">
+
+            <TextBlock Text="Источники, которые использую:"
+                       Style="{StaticResource SelectedColorForeground}"
+                       FontSize="18"/>
+            <TextBox Height="25" Width="250" Text="1. https://surdo.me/?ysclid=l1u8ilskwf"/>
+            <TextBox Height="25" Width="250" Text="2. https://www.spreadthesign.com/ru.ru/search/"/>
+        </StackPanel>
+
     </Grid>
 </UserControl>

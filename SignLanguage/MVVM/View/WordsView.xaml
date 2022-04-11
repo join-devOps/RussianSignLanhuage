@@ -70,10 +70,10 @@
                     </LinearGradientBrush>
                 </Border.Background>
 
-                <Button Foreground="White"
-                             FontSize="20"
-                             Content="Для&#x0a;начинающих"
-                             Style="{StaticResource WordsButtonTheme}"/>
+                <Button Command="{Binding ShowLearning}"
+                        FontSize="20"
+                        Content="Для&#x0a;начинающих"
+                        Style="{StaticResource WordsButtonTheme}"/>
             </Border>
 
             <Border CornerRadius="10"
@@ -87,8 +87,9 @@
                     </LinearGradientBrush>
                 </Border.Background>
 
-                <Button FontSize="20"
-                        Content="Погода"
+                <Button Command="{Binding ShowSoftware}"
+                        FontSize="20"
+                        Content="Разработчик&#x0a;ПО"
                         Style="{StaticResource WordsButtonTheme}"/>
             </Border>
         </StackPanel>
@@ -104,6 +105,31 @@
                            Style="{StaticResource SelectedColorForeground}"
                            FontSize="20"/>
             </StackPanel>
+
+            <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                      SelectedIndex="{Binding GetSelectedIndex}"
+                      SelectionMode="Single"
+                      Height="auto"
+                      ItemsSource="{Binding WordsCollege}"
+                      SelectedItem="{Binding GetMedia}"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      Grid.Row="1"
+                      Visibility="{Binding GetCollege}"
+                      ItemContainerStyle="{StaticResource WordFamilyListViewItemTheme}">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="Transparent">
+                            <WrapPanel>
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </Grid>
+                            </WrapPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
             <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled"
                       SelectedIndex="{Binding GetSelectedIndex}"
@@ -134,12 +160,37 @@
                       SelectedIndex="{Binding GetSelectedIndex}"
                       SelectionMode="Single"
                       Height="auto"
-                      ItemsSource="{Binding WordsCollege}"
+                      ItemsSource="{Binding WordsLearning}"
                       SelectedItem="{Binding GetMedia}"
                       Background="Transparent"
                       BorderThickness="0"
                       Grid.Row="1"
-                      Visibility="{Binding GetCollege}"
+                      Visibility="{Binding GetLearning}"
+                      ItemContainerStyle="{StaticResource WordFamilyListViewItemTheme}">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="Transparent">
+                            <WrapPanel>
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </Grid>
+                            </WrapPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                      SelectedIndex="{Binding GetSelectedIndex}"
+                      SelectionMode="Single"
+                      Height="auto"
+                      ItemsSource="{Binding WordsSoftware}"
+                      SelectedItem="{Binding GetMedia}"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      Grid.Row="1"
+                      Visibility="{Binding GetSoftware}"
                       ItemContainerStyle="{StaticResource WordFamilyListViewItemTheme}">
 
                 <ListView.ItemTemplate>
@@ -156,17 +207,18 @@
             </ListView>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1">
+        <StackPanel Grid.Row="1" Grid.Column="1"
+                    VerticalAlignment="Bottom">
 
             <MediaElement Source="{Binding GetMedia.Media}"
-                          Height="250" Width="200"
-                          RenderTransformOrigin="0.5,0.5">
+                          RenderTransformOrigin="0.5,0.5"
+                          Margin="0,20,0,50">
                 
                 <MediaElement.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
-                        <RotateTransform Angle="90"/>
+                        <RotateTransform Angle="0"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </MediaElement.RenderTransform>

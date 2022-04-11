@@ -111,6 +111,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\View\Test\TestEasyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\Test\TestHellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\Test\TestMediumView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\WordsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -142,6 +154,9 @@
     <Compile Include="MVVM\ViewModel\RussianAlphabetViewModel.cs" />
     <Compile Include="MVVM\ViewModel\SettingViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TestViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Test\TestEasyViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Test\TestHellViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Test\TestMediumViewModel.cs" />
     <Compile Include="MVVM\ViewModel\WordsViewModel.cs" />
     <Compile Include="MVVM\View\FactsView.xaml.cs">
       <DependentUpon>FactsView.xaml</DependentUpon>
@@ -157,6 +172,15 @@
     </Compile>
     <Compile Include="MVVM\View\TestView.xaml.cs">
       <DependentUpon>TestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\Test\TestEasyView.xaml.cs">
+      <DependentUpon>TestEasyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\Test\TestHellView.xaml.cs">
+      <DependentUpon>TestHellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\Test\TestMediumView.xaml.cs">
+      <DependentUpon>TestMediumView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\WordsView.xaml.cs">
       <DependentUpon>WordsView.xaml</DependentUpon>
@@ -196,7 +220,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="config.ini" />
+    <None Include="config.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -206,22 +232,67 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Media\Family\Bro.MOV">
+    <Content Include="Media\College\1.wmv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Media\Family\Dad.MOV">
+    <Content Include="Media\College\2.wmv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Media\Family\GrandDad.MOV">
+    <Content Include="Media\College\3.wmv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Media\Family\Grandmom.MOV">
+    <Content Include="Media\College\4.wmv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Media\Family\Mom.MOV">
+    <Content Include="Media\College\5.wmv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Media\Family\Sis.MOV">
+    <Content Include="Media\Family\Bro.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Family\Dad.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Family\GrandDad.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Family\GrandMom.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Family\Mom.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Family\Sis.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Software\1.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Software\2.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Software\3.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Software\4.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Software\5.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Software\6.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Studying\1.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Studying\2.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Studying\3.wmv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Studying\4.wmv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -231,5 +302,6 @@
       <Name>SignLanguage.Images</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

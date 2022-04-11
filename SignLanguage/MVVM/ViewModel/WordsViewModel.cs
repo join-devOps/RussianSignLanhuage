@@ -9,69 +9,102 @@ namespace SignLanguage.MVVM.ViewModel
 {
     class WordsViewModel : ObservableObject
     {
-        List<Words> wordsCollege = new List<Words>() { new Words() { Title = "Колледж", Media = new Uri("pack://application:,,,/SignLanguage.Images;component/Images/0.jpg") },
-                                                       new Words() { Title = "Группа", Media = new Uri("pack://application:,,,/SignLanguage.Images;component/Images/0.jpg") },
-                                                       new Words() { Title = "Курс", Media = new Uri("pack://application:,,,/SignLanguage.Images;component/Images/0.jpg") },
-                                                       new Words() { Title = "Руководитель(-ница)", Media = new Uri("pack://application:,,,/SignLanguage.Images;component/Images/0.jpg") },
-                                                       new Words() { Title = "Я учусь на 4 курсе", Media = new Uri("pack://application:,,,/SignLanguage.Images;component/Images/0.jpg") }};
-
-        List<Words> wordsFamily = new List<Words>() { new Words() { Title = "Мама", Media = new Uri("Media/Family/Mom.MOV", UriKind.Relative) },
-                                                       new Words() { Title = "Отец", Media = new Uri("Media/Family/Dad.MOV", UriKind.Relative) },
-                                                       new Words() { Title = "Бабушка", Media = new Uri("Media/Family/Grandmom.MOV", UriKind.Relative) },
-                                                       new Words() { Title = "Дед", Media = new Uri("Media/Family/GrandDad.MOV", UriKind.Relative) },
-                                                       new Words() { Title = "Брат", Media = new Uri("Media/Family/Bro.MOV", UriKind.Relative) },
-                                                       new Words() { Title = "Сестра", Media = new Uri("Media/Family/Sis.MOV", UriKind.Relative) }};
+        private RelayCommand showCollege;
+        public RelayCommand ShowCollege
+        {
+            get => showCollege ?? (showCollege = new RelayCommand(o => { SetLearning = 0; }));
+        }
 
         private RelayCommand showFamily;
         public RelayCommand ShowFamily
         {
-            get => showFamily ?? (showFamily = new RelayCommand(o => { CollegeFamily = false; }));
+            get => showFamily ?? (showFamily = new RelayCommand(o => { SetLearning = 1; }));
         }
 
-        private RelayCommand showCollege;
-        public RelayCommand ShowCollege
+        private RelayCommand showLearning;
+        public RelayCommand ShowLearning
         {
-            get => showCollege ?? (showCollege = new RelayCommand(o => { CollegeFamily = true; }));
+            get => showLearning ?? (showLearning = new RelayCommand(o => { SetLearning = 2; }));
+        }
+
+        private RelayCommand showSoftware;
+        public RelayCommand ShowSoftware
+        {
+            get => showSoftware ?? (showSoftware = new RelayCommand(o => { SetLearning = 3; }));
         }
 
         public string GetContent
         {
-            get => CollegeFamily ? "Колледж" : "Семья";
+            get
+            {
+                if (SetLearning == 0)
+                    return "Колледж";
+                if (SetLearning == 1)
+                    return "Семья";
+                if (SetLearning == 2)
+                    return "Для начинающих";
+                if (SetLearning == 3)
+                    return "Разработчик ПО";
+                else
+                    return "Выберите тему";
+            }
         }
 
-        private bool collegeFamily = false;
-        public bool CollegeFamily
+        private byte setLearning;
+        public byte SetLearning
         {
-            get => collegeFamily;
+            get => setLearning;
             set
             {
-                collegeFamily = value;
+                setLearning = value;
                 OnPropertyChanged("CollegeFamily");
                 OnPropertyChanged("GetFamily");
                 OnPropertyChanged("GetCollege");
+                OnPropertyChanged("GetLearning");
+                OnPropertyChanged("GetSoftware");
                 OnPropertyChanged("GetContent");
                 OnPropertyChanged("GetMedia");
             }
         }
 
-        public Visibility GetFamily
-        {
-            get => CollegeFamily == false ? Visibility.Visible : Visibility.Collapsed;
-        }
-
         public Visibility GetCollege
         {
-            get => CollegeFamily == true ? Visibility.Visible : Visibility.Collapsed;
+            get => SetLearning == 0 ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        public Visibility GetFamily
+        {
+            get => SetLearning == 1 ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        public Visibility GetLearning
+        {
+            get => SetLearning == 2 ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        public Visibility GetSoftware
+        {
+            get => SetLearning == 3 ? Visibility.Visible : Visibility.Collapsed;
         }
 
         public List<Words> WordsCollege
         {
-            get => wordsCollege.ToList();
+            get => WordsList.wordsCollege.ToList();
         }
 
         public List<Words> WordsFamily
         {
-            get => wordsFamily.ToList();
+            get => WordsList.wordsFamily.ToList();
+        }
+
+        public List<Words> WordsLearning
+        {
+            get => WordsList.wordsLearning.ToList();
+        }
+
+        public List<Words> WordsSoftware
+        {
+            get => WordsList.wordsSoftware.ToList();
         }
 
         private Words getMedia;

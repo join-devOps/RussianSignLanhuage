@@ -1,9 +1,12 @@
 ﻿using SignLanguage.Core;
+using System.Globalization;
+using System.Threading;
 
 namespace SignLanguage.MVVM.ViewModel
 {
     class MainViewModel : ObservableObject
     {
+        IniFile INI = new IniFile("config.ini");
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand RussianAlphabetViewCommand { get; set; }
         public RelayCommand WordsViewCommand { get; set; }
@@ -41,8 +44,43 @@ namespace SignLanguage.MVVM.ViewModel
             }
         }
 
+        private string getSettingColor;
+        public string GetSettingColor
+        {
+            get => getSettingColor;
+            set
+            {
+                getSettingColor = value;
+                OnPropertyChanged("GetSetting");
+            }
+        }
+
+        private string getSettingLanguage;
+        public string GetSettingLanguage
+        {
+            get => getSettingLanguage;
+            set
+            {
+                getSettingLanguage = value;
+                OnPropertyChanged("GetSettingLanguage");
+            }
+        }
+
         public MainViewModel()
         {
+            GetSettingColor = INI.ReadINI("DefaultSetting", "Color");
+            GetSettingLanguage = INI.ReadINI("DefaultSetting", "Language");
+
+            if (GetSettingColor == "Dark")
+                (App.Current as App).ChangeSkin(Skin.Dark);
+            else
+                (App.Current as App).ChangeSkin(Skin.Snow);
+
+            //if (GetSettingLanguage == "EN")
+            //    Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+            //else
+            //    Thread.CurrentThread.CurrentCulture = new CultureInfo("ru-RU");
+
             HomeVm = new HomeViewModel();
             RussianAlphabetVm = new RussianAlphabetViewModel();
             WordsVm = new WordsViewModel();
