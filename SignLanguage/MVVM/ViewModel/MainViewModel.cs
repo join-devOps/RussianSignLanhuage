@@ -13,6 +13,7 @@ namespace SignLanguage.MVVM.ViewModel
         public RelayCommand TestViewCommand { get; set; }
         public RelayCommand SettingViewCommand { get; set; }
         public RelayCommand FactsViewCommand { get; set; }
+        public RelayCommand SupportViewCommand { get; set; }
 
         public HomeViewModel HomeVm { get; set; }
         public RussianAlphabetViewModel RussianAlphabetVm { get; set; }
@@ -20,6 +21,8 @@ namespace SignLanguage.MVVM.ViewModel
         public TestViewModel TestVm { get; set; }
         public SettingViewModel SettingVm { get; set; }
         public FactsViewModel FactsVm { get; set; }
+
+        public SupportViewModel SupportVm { get; set; }
 
         private object _currentView;
 
@@ -87,6 +90,7 @@ namespace SignLanguage.MVVM.ViewModel
             TestVm = new TestViewModel();
             SettingVm = new SettingViewModel();
             FactsVm = new FactsViewModel();
+            SupportVm = new SupportViewModel();
             CurrentView = HomeVm;
 
             HomeViewCommand = new RelayCommand(o =>
@@ -123,6 +127,12 @@ namespace SignLanguage.MVVM.ViewModel
             {
                 CurrentView = FactsVm;
                 CurrentHeader = "Факты";
+            });
+
+            SupportViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = SupportVm;
+                CurrentHeader = "Поддержка";
             });
         }
     }

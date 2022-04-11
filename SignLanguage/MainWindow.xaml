@@ -121,8 +121,13 @@
                              Command="{Binding FactsViewCommand}"
                              Height="50"
                              FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"
-                             />
+                             Style="{StaticResource MenuButtonTheme}"/>
+
+                <RadioButton Content="Поддержка"
+                             Command="{Binding SupportViewCommand}"
+                             Height="50"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"/>
             </StackPanel>
 
             <TextBox Width="250"

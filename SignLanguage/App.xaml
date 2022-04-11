@@ -41,6 +41,10 @@
                 <view:FactsView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:SupportViewModel}">
+                <view:SupportView/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -107,6 +107,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\View\SupportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\TestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -153,6 +157,7 @@
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\RussianAlphabetViewModel.cs" />
     <Compile Include="MVVM\ViewModel\SettingViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\SupportViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TestViewModel.cs" />
     <Compile Include="MVVM\ViewModel\Test\TestEasyViewModel.cs" />
     <Compile Include="MVVM\ViewModel\Test\TestHellViewModel.cs" />
@@ -169,6 +174,9 @@
     </Compile>
     <Compile Include="MVVM\View\SettingView.xaml.cs">
       <DependentUpon>SettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\SupportView.xaml.cs">
+      <DependentUpon>SupportView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\TestView.xaml.cs">
       <DependentUpon>TestView.xaml</DependentUpon>
