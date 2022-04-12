@@ -33,6 +33,18 @@ namespace SignLanguage.MVVM.ViewModel
             get => showSoftware ?? (showSoftware = new RelayCommand(o => { SetLearning = 3; }));
         }
 
+        private RelayCommand backCommand;
+        public RelayCommand BackCommand
+        {
+            get => backCommand ?? (backCommand = new RelayCommand(o => { GetSelectedIndex--; }));
+        }
+
+        private RelayCommand nextCommand;
+        public RelayCommand NextCommand
+        {
+            get => nextCommand ?? (nextCommand = new RelayCommand(o => { GetSelectedIndex++; }));
+        }
+
         public string GetContent
         {
             get
@@ -85,6 +97,16 @@ namespace SignLanguage.MVVM.ViewModel
         public Visibility GetSoftware
         {
             get => SetLearning == 3 ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        //public Visibility HideButtonNext
+        //{
+        //    get => (GetSelectedIndex == GetMaxCount - 1) ? Visibility.Hidden : Visibility.Visible;
+        //}
+
+        public Visibility HideButtonBack
+        {
+            get => (GetSelectedIndex == 0) ? Visibility.Hidden : Visibility.Visible;
         }
 
         public List<Words> WordsCollege

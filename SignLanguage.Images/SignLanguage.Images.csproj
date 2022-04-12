@@ -151,12 +151,6 @@
     <Resource Include="Images\d_1.png" />
     <Resource Include="Images\d_2.png" />
     <Resource Include="Images\d_3.png" />
-    <Content Include="Media\Family\Bro.MOV" />
-    <Content Include="Media\Family\Dad.MOV" />
-    <Content Include="Media\Family\GrandDad.MOV" />
-    <Content Include="Media\Family\Grandmom.MOV" />
-    <Content Include="Media\Family\Mom.MOV" />
-    <Content Include="Media\Family\Sis.MOV" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

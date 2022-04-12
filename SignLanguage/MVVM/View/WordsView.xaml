@@ -9,6 +9,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -94,19 +95,17 @@
             </Border>
         </StackPanel>
 
-        <StackPanel Grid.Row="1">
-
-            <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 15">
-                <TextBlock Text="Тема урока: "
+        <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 55" Grid.Row="1">
+            <TextBlock Text="Тема урока: "
                            Style="{StaticResource SelectedColorForeground}"
                            FontSize="20"/>
 
-                <TextBlock Text="{Binding GetContent}"
+            <TextBlock Text="{Binding GetContent}"
                            Style="{StaticResource SelectedColorForeground}"
                            FontSize="20"/>
-            </StackPanel>
+        </StackPanel>
 
-            <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled"
+        <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled"
                       SelectedIndex="{Binding GetSelectedIndex}"
                       SelectionMode="Single"
                       Height="auto"
@@ -114,24 +113,24 @@
                       SelectedItem="{Binding GetMedia}"
                       Background="Transparent"
                       BorderThickness="0"
-                      Grid.Row="1"
+                      Grid.Row="2"
                       Visibility="{Binding GetCollege}"
                       ItemContainerStyle="{StaticResource WordFamilyListViewItemTheme}">
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Border Background="Transparent">
-                            <WrapPanel>
-                                <Grid>
-                                    <StackPanel Orientation="Horizontal"/>
-                                </Grid>
-                            </WrapPanel>
-                        </Border>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="Transparent">
+                        <WrapPanel>
+                            <Grid>
+                                <StackPanel Orientation="Horizontal"/>
+                            </Grid>
+                        </WrapPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-            <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled"
+        <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled"
                       SelectedIndex="{Binding GetSelectedIndex}"
                       SelectionMode="Single"
                       Height="auto"
@@ -139,24 +138,24 @@
                       SelectedItem="{Binding GetMedia}"
                       Background="Transparent"
                       BorderThickness="0"
-                      Grid.Row="1"
+                      Grid.Row="2"
                       Visibility="{Binding GetFamily}"
                       ItemContainerStyle="{StaticResource WordFamilyListViewItemTheme}">
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Border Background="Transparent">
-                            <WrapPanel>
-                                <Grid>
-                                    <StackPanel Orientation="Horizontal"/>
-                                </Grid>
-                            </WrapPanel>
-                        </Border>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="Transparent">
+                        <WrapPanel>
+                            <Grid>
+                                <StackPanel Orientation="Horizontal"/>
+                            </Grid>
+                        </WrapPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-            <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled"
+        <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled"
                       SelectedIndex="{Binding GetSelectedIndex}"
                       SelectionMode="Single"
                       Height="auto"
@@ -164,24 +163,24 @@
                       SelectedItem="{Binding GetMedia}"
                       Background="Transparent"
                       BorderThickness="0"
-                      Grid.Row="1"
+                      Grid.Row="2"
                       Visibility="{Binding GetLearning}"
                       ItemContainerStyle="{StaticResource WordFamilyListViewItemTheme}">
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Border Background="Transparent">
-                            <WrapPanel>
-                                <Grid>
-                                    <StackPanel Orientation="Horizontal"/>
-                                </Grid>
-                            </WrapPanel>
-                        </Border>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="Transparent">
+                        <WrapPanel>
+                            <Grid>
+                                <StackPanel Orientation="Horizontal"/>
+                            </Grid>
+                        </WrapPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-            <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled"
+        <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled"
                       SelectedIndex="{Binding GetSelectedIndex}"
                       SelectionMode="Single"
                       Height="auto"
@@ -189,31 +188,30 @@
                       SelectedItem="{Binding GetMedia}"
                       Background="Transparent"
                       BorderThickness="0"
-                      Grid.Row="1"
+                      Grid.Row="2"
                       Visibility="{Binding GetSoftware}"
                       ItemContainerStyle="{StaticResource WordFamilyListViewItemTheme}">
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Border Background="Transparent">
-                            <WrapPanel>
-                                <Grid>
-                                    <StackPanel Orientation="Horizontal"/>
-                                </Grid>
-                            </WrapPanel>
-                        </Border>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="Transparent">
+                        <WrapPanel>
+                            <Grid>
+                                <StackPanel Orientation="Horizontal"/>
+                            </Grid>
+                        </WrapPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-        <StackPanel Grid.Row="1" Grid.Column="1"
+        <StackPanel Grid.Row="2" Grid.Column="1"
                     VerticalAlignment="Bottom">
 
             <MediaElement Source="{Binding GetMedia.Media}"
                           RenderTransformOrigin="0.5,0.5"
                           Margin="0,20,0,50">
-                
+
                 <MediaElement.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -226,7 +224,7 @@
 
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center">
-                
+
                 <Button Content="Назад"
                         Command="{Binding BackCommand}"
                         Height="25" Width="100"
