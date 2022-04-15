@@ -84,9 +84,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Core\IniFile.cs" />
-    <Compile Include="Core\ObservableObject.cs" />
-    <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -145,7 +142,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\Model\Interface\IModel.cs" />
     <Compile Include="MVVM\Model\Interface\IUser.cs" />
+    <Compile Include="MVVM\Model\Locator.cs" />
+    <Compile Include="MVVM\Model\ModelClass.cs" />
     <Compile Include="MVVM\Model\ResultExcel.cs" />
     <Compile Include="MVVM\Model\RusAlphabet.cs" />
     <Compile Include="MVVM\Model\Test.cs" />
@@ -377,6 +377,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SignLanguage.Core\SignLanguage.Core.csproj">
+      <Project>{8bff6788-ed4d-4903-b032-0f422607d134}</Project>
+      <Name>SignLanguage.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SignLanguage.Images\SignLanguage.Images.csproj">
       <Project>{77a5a403-ab7e-4098-9b1e-0e38c88527d2}</Project>
       <Name>SignLanguage.Images</Name>

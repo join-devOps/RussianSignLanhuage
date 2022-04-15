@@ -1,12 +1,24 @@
-﻿using System;
+﻿using SignLanguage.Core;
+using System;
 using System.Collections.Generic;
 
 namespace SignLanguage.MVVM.Model
 {
-    class Words
+    class Words : CorePropertyChanged
     {
-        public string Title { get; set; }
-        public Uri Media { get; set; }
+        private string _Title;
+        public string Title 
+        {
+            get => _Title;
+            set => SetProperty(ref _Title, value);
+        }
+
+        private Uri _Media;
+        public Uri Media 
+        {
+            get => _Media;
+            set => SetProperty(ref _Media, value);
+        }
     }
 
     class WordsList

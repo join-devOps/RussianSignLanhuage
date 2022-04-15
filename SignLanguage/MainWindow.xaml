@@ -12,11 +12,8 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True"
-        MouseLeftButtonDown="Window_MouseLeftButtonDown">
-
-    <Window.DataContext>
-        <viewModel:MainViewModel/>
-    </Window.DataContext>
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        DataContext="{Binding MainVM, Mode=OneWay, Source={StaticResource Locator}}">
 
     <Border Style="{StaticResource SelectedColorBorder}">
         <Grid>
@@ -130,7 +127,8 @@
                              Style="{StaticResource MenuButtonTheme}"/>
             </StackPanel>
 
-            <TextBox Width="250"
+            <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                     Width="250"
                      Height="40"
                      VerticalContentAlignment="Center"
                      HorizontalAlignment="Right"

@@ -2,7 +2,7 @@
 
 namespace SignLanguage.MVVM.ViewModel
 {
-    class HomeViewModel : ObservableObject
+    class HomeViewModel : CorePropertyChanged
     {
     }
 }

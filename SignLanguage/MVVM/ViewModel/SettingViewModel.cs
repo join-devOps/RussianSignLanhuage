@@ -6,34 +6,34 @@ using System.Threading;
 
 namespace SignLanguage.MVVM.ViewModel
 {
-    class SettingViewModel : ObservableObject, IUser
+    class SettingViewModel : CorePropertyChanged, IUser
     {
         private IniFile INI = new IniFile("config.ini");
 
-        private RelayCommand commandDark;
-        public RelayCommand CommandDark
+        private CoreRelayCommand commandDark;
+        public CoreRelayCommand CommandDark
         {
-            get => commandDark ?? (commandDark = new RelayCommand(o =>
+            get => commandDark ?? (commandDark = new CoreRelayCommand(o =>
             {
                 (App.Current as App).ChangeSkin(Skin.Dark);
                 INI.Write("DefaultSetting", "Color", "Dark");
             }));
         }
 
-        private RelayCommand commandSnow;
-        public RelayCommand CommandSnow
+        private CoreRelayCommand commandSnow;
+        public CoreRelayCommand CommandSnow
         {
-            get => commandSnow ?? (commandSnow = new RelayCommand(o =>
+            get => commandSnow ?? (commandSnow = new CoreRelayCommand(o =>
             {
                 (App.Current as App).ChangeSkin(Skin.Snow);
                 INI.Write("DefaultSetting", "Color", "Snow");
             }));
         }
 
-        private RelayCommand commandDev;
-        public RelayCommand CommandDev
+        private CoreRelayCommand commandDev;
+        public CoreRelayCommand CommandDev
         {
-            get => commandDev ?? (commandDev = new RelayCommand(o=>
+            get => commandDev ?? (commandDev = new CoreRelayCommand(o=>
             {
                 if (!IsDev)
                     IsDev = true;
@@ -41,19 +41,19 @@ namespace SignLanguage.MVVM.ViewModel
             }));
         }
 
-        private RelayCommand commandRu;
-        public RelayCommand CommandRu
+        private CoreRelayCommand commandRu;
+        public CoreRelayCommand CommandRu
         {
-            get => commandRu ?? (commandRu = new RelayCommand(o =>
+            get => commandRu ?? (commandRu = new CoreRelayCommand(o =>
             {
                 INI.Write("DefaultSetting", "Language", "RU");
             }));
         }
 
-        private RelayCommand commandEn;
-        public RelayCommand CommandEn
+        private CoreRelayCommand commandEn;
+        public CoreRelayCommand CommandEn
         {
-            get => commandEn ?? (commandEn = new RelayCommand(o =>
+            get => commandEn ?? (commandEn = new CoreRelayCommand(o =>
             {
                 INI.Write("DefaultSetting", "Language", "EN");
             }));

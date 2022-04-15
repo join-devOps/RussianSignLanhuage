@@ -7,42 +7,44 @@ using System.Windows;
 
 namespace SignLanguage.MVVM.ViewModel
 {
-    class WordsViewModel : ObservableObject
+    class WordsViewModel : CorePropertyChanged
     {
-        private RelayCommand showCollege;
-        public RelayCommand ShowCollege
+        private readonly ModelClass model;
+
+        private CoreRelayCommand showCollege;
+        public CoreRelayCommand ShowCollege
         {
-            get => showCollege ?? (showCollege = new RelayCommand(o => { SetLearning = 0; }));
+            get => showCollege ?? (showCollege = new CoreRelayCommand(o => { SetLearning = 0; }));
         }
 
-        private RelayCommand showFamily;
-        public RelayCommand ShowFamily
+        private CoreRelayCommand showFamily;
+        public CoreRelayCommand ShowFamily
         {
-            get => showFamily ?? (showFamily = new RelayCommand(o => { SetLearning = 1; }));
+            get => showFamily ?? (showFamily = new CoreRelayCommand(o => { SetLearning = 1; }));
         }
 
-        private RelayCommand showLearning;
-        public RelayCommand ShowLearning
+        private CoreRelayCommand showLearning;
+        public CoreRelayCommand ShowLearning
         {
-            get => showLearning ?? (showLearning = new RelayCommand(o => { SetLearning = 2; }));
+            get => showLearning ?? (showLearning = new CoreRelayCommand(o => { SetLearning = 2; }));
         }
 
-        private RelayCommand showSoftware;
-        public RelayCommand ShowSoftware
+        private CoreRelayCommand showSoftware;
+        public CoreRelayCommand ShowSoftware
         {
-            get => showSoftware ?? (showSoftware = new RelayCommand(o => { SetLearning = 3; }));
+            get => showSoftware ?? (showSoftware = new CoreRelayCommand(o => { SetLearning = 3; }));
         }
 
-        private RelayCommand backCommand;
-        public RelayCommand BackCommand
+        private CoreRelayCommand backCommand;
+        public CoreRelayCommand BackCommand
         {
-            get => backCommand ?? (backCommand = new RelayCommand(o => { GetSelectedIndex--; }));
+            get => backCommand ?? (backCommand = new CoreRelayCommand(o => { GetSelectedIndex--; }));
         }
 
-        private RelayCommand nextCommand;
-        public RelayCommand NextCommand
+        private CoreRelayCommand nextCommand;
+        public CoreRelayCommand NextCommand
         {
-            get => nextCommand ?? (nextCommand = new RelayCommand(o => { GetSelectedIndex++; }));
+            get => nextCommand ?? (nextCommand = new CoreRelayCommand(o => { GetSelectedIndex++; }));
         }
 
         public string GetContent
@@ -109,9 +111,23 @@ namespace SignLanguage.MVVM.ViewModel
             get => (GetSelectedIndex == 0) ? Visibility.Hidden : Visibility.Visible;
         }
 
+        private List<Words> _wordsList;
         public List<Words> WordsCollege
         {
-            get => WordsList.wordsCollege.ToList();
+            get
+            {
+                List<Words> _WordsList = _wordsList;
+
+                if (SearchText != null)
+                    _WordsList = _WordsList.Where(item => item.Title.IndexOf(SearchText, System.StringComparison.OrdinalIgnoreCase) != -1).ToList();
+
+                return _WordsList;
+            }
+            set
+            {
+                SetProperty(ref _wordsList, value);
+                OnPropertyChanged("SearchText");
+            }
         }
 
         public List<Words> WordsFamily
@@ -148,6 +164,44 @@ namespace SignLanguage.MVVM.ViewModel
             {
                 getSelectedIndex = value;
                 OnPropertyChanged("GetSelectedIndex");
+            }
+        }
+
+        private string searchText;
+        public string SearchText
+        {
+            get => searchText;
+            set
+            {
+                SetProperty(ref searchText, value);
+                OnPropertyChanged("WordsCollege");
+            }
+        }
+
+        public WordsViewModel(ModelClass model)
+        {
+            this.model = model;
+            model.ValueChanged += ModelValueChanged;
+            model.AllValueChanged();
+
+            WordsCollege = WordsList.wordsCollege.ToList();
+        }
+
+        private void ModelValueChanged(object sender, string valueName, object oldValue, object newValue)
+        {
+            switch (valueName)
+            {
+                case nameof(ModelClass.StringValue): SearchText = (string)newValue; break;
+            }
+        }
+
+        protected override void PropertyNewValue<T>(ref T fieldProperty, T newValue, string propertyName)
+        {
+            base.PropertyNewValue(ref fieldProperty, newValue, propertyName);
+
+            switch (propertyName)
+            {
+                case nameof(SearchText): model.SendValue(nameof(ModelClass.StringValue), SearchText); break;
             }
         }
     }

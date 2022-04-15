@@ -5,18 +5,15 @@
              xmlns:viewModel="clr-namespace:SignLanguage.MVVM.ViewModel"
              xmlns:colors="clr-namespace:SignLanguage.MVVM.Model"
              xmlns:view="clr-namespace:SignLanguage.MVVM.View"
+             xmlns:model="clr-namespace:SignLanguage.MVVM.Model"
              StartupUri="MainWindow.xaml">
-    
+
     <Application.Resources>
+
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
 
-                <colors:Themes DarkSource ="Theme/DarkColor.xaml"
-                               SnowSource ="Theme/SnowColor.xaml"/>
-                
-                <ResourceDictionary Source="Theme/SelectedTheme.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-
+            <model:Locator x:Key="Locator"/>
+            
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
                 <view:HomeView/>
             </DataTemplate>
@@ -44,6 +41,14 @@
             <DataTemplate DataType="{x:Type viewModel:SupportViewModel}">
                 <view:SupportView/>
             </DataTemplate>
+
+            <ResourceDictionary.MergedDictionaries>
+                
+                <colors:Themes DarkSource ="Theme/DarkColor.xaml"
+                               SnowSource ="Theme/SnowColor.xaml"/>
+
+                <ResourceDictionary Source="Theme/SelectedTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>
     </Application.Resources>

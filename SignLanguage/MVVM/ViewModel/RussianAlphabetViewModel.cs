@@ -7,9 +7,9 @@ using System.Windows;
 
 namespace SignLanguage.MVVM.ViewModel
 {
-    class RussianAlphabetViewModel : ObservableObject, IUser
+    class RussianAlphabetViewModel : CorePropertyChanged, IUser
     {
-        
+        private readonly ModelClass model;
 
         private byte GetMaxCount
         {
@@ -56,16 +56,16 @@ namespace SignLanguage.MVVM.ViewModel
             }
         }
 
-        private RelayCommand backCommand;
-        public RelayCommand BackCommand
+        private CoreRelayCommand backCommand;
+        public CoreRelayCommand BackCommand
         {
-            get => backCommand ?? (backCommand = new RelayCommand(o => { GetSelectedIndex--; } ));
+            get => backCommand ?? (backCommand = new CoreRelayCommand(o => { GetSelectedIndex--; } ));
         }
 
-        private RelayCommand nextCommand;
-        public RelayCommand NextCommand
+        private CoreRelayCommand nextCommand;
+        public CoreRelayCommand NextCommand
         {
-            get => nextCommand ?? (nextCommand = new RelayCommand(o => { GetSelectedIndex++; } ));
+            get => nextCommand ?? (nextCommand = new CoreRelayCommand(o => { GetSelectedIndex++; } ));
         }
 
         public Visibility HideButtonNext
@@ -81,6 +81,11 @@ namespace SignLanguage.MVVM.ViewModel
         public Visibility GetChangeImage
         {
             get => IsDev == true ? Visibility.Visible : Visibility.Hidden;
+        }
+
+        public RussianAlphabetViewModel(ModelClass model)
+        {
+            this.model = model;
         }
     }
 }

@@ -1,19 +1,20 @@
 ﻿using SignLanguage.Core;
-using System.Globalization;
-using System.Threading;
+using SignLanguage.MVVM.Model;
 
 namespace SignLanguage.MVVM.ViewModel
 {
-    class MainViewModel : ObservableObject
+    class MainViewModel : CorePropertyChanged
     {
+        private readonly ModelClass model;
+
         IniFile INI = new IniFile("config.ini");
-        public RelayCommand HomeViewCommand { get; set; }
-        public RelayCommand RussianAlphabetViewCommand { get; set; }
-        public RelayCommand WordsViewCommand { get; set; }
-        public RelayCommand TestViewCommand { get; set; }
-        public RelayCommand SettingViewCommand { get; set; }
-        public RelayCommand FactsViewCommand { get; set; }
-        public RelayCommand SupportViewCommand { get; set; }
+        public CoreRelayCommand HomeViewCommand { get; set; }
+        public CoreRelayCommand RussianAlphabetViewCommand { get; set; }
+        public CoreRelayCommand WordsViewCommand { get; set; }
+        public CoreRelayCommand TestViewCommand { get; set; }
+        public CoreRelayCommand SettingViewCommand { get; set; }
+        public CoreRelayCommand FactsViewCommand { get; set; }
+        public CoreRelayCommand SupportViewCommand { get; set; }
 
         public HomeViewModel HomeVm { get; set; }
         public RussianAlphabetViewModel RussianAlphabetVm { get; set; }
@@ -21,7 +22,6 @@ namespace SignLanguage.MVVM.ViewModel
         public TestViewModel TestVm { get; set; }
         public SettingViewModel SettingVm { get; set; }
         public FactsViewModel FactsVm { get; set; }
-
         public SupportViewModel SupportVm { get; set; }
 
         private object _currentView;
@@ -29,11 +29,7 @@ namespace SignLanguage.MVVM.ViewModel
         public object CurrentView
         {
             get => _currentView;
-            set
-            {
-                _currentView = value;
-                OnPropertyChanged();
-            }
+            set => SetProperty(ref _currentView, value);
         }
 
         private string _currentHeader;
@@ -53,87 +49,99 @@ namespace SignLanguage.MVVM.ViewModel
             get => getSettingColor;
             set
             {
-                getSettingColor = value;
+                SetProperty(ref getSettingColor, value);
                 OnPropertyChanged("GetSetting");
             }
         }
 
-        private string getSettingLanguage;
-        public string GetSettingLanguage
+        private string searchText;
+        public string SearchText
         {
-            get => getSettingLanguage;
-            set
-            {
-                getSettingLanguage = value;
-                OnPropertyChanged("GetSettingLanguage");
-            }
+            get => searchText;
+            set => SetProperty(ref searchText, value);
         }
 
-        public MainViewModel()
+        public MainViewModel(ModelClass model)
         {
+            this.model = model;
+            model.ValueChanged += ModelValueChanged;
+            model.AllValueChanged();
+
             GetSettingColor = INI.ReadINI("DefaultSetting", "Color");
-            GetSettingLanguage = INI.ReadINI("DefaultSetting", "Language");
 
             if (GetSettingColor == "Dark")
                 (App.Current as App).ChangeSkin(Skin.Dark);
             else
                 (App.Current as App).ChangeSkin(Skin.Snow);
 
-            //if (GetSettingLanguage == "EN")
-            //    Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
-            //else
-            //    Thread.CurrentThread.CurrentCulture = new CultureInfo("ru-RU");
-
             HomeVm = new HomeViewModel();
-            RussianAlphabetVm = new RussianAlphabetViewModel();
-            WordsVm = new WordsViewModel();
+            RussianAlphabetVm = new RussianAlphabetViewModel(model);
+            WordsVm = new WordsViewModel(model);
             TestVm = new TestViewModel();
             SettingVm = new SettingViewModel();
             FactsVm = new FactsViewModel();
             SupportVm = new SupportViewModel();
             CurrentView = HomeVm;
 
-            HomeViewCommand = new RelayCommand(o =>
+            HomeViewCommand = new CoreRelayCommand(o =>
             {
-                CurrentView = HomeVm;
+                CurrentView = HomeViewCommand;
                 CurrentHeader = "Избранное";
             });
 
-            RussianAlphabetViewCommand = new RelayCommand(o =>
+            RussianAlphabetViewCommand = new CoreRelayCommand(o =>
             {
                 CurrentView = RussianAlphabetVm;
                 CurrentHeader = "Алфавит";
             });
 
-            WordsViewCommand = new RelayCommand(o =>
+            WordsViewCommand = new CoreRelayCommand(o =>
             {
                 CurrentView = WordsVm;
                 CurrentHeader = "Слова";
             });
 
-            TestViewCommand = new RelayCommand(o =>
+            TestViewCommand = new CoreRelayCommand(o =>
             {
                 CurrentView = TestVm;
                 CurrentHeader = "Тест";
             });
 
-            SettingViewCommand = new RelayCommand(o =>
+            SettingViewCommand = new CoreRelayCommand(o =>
             {
                 CurrentView = SettingVm;
                 CurrentHeader = "Настройки";
             });
 
-            FactsViewCommand = new RelayCommand(o =>
+            FactsViewCommand = new CoreRelayCommand(o =>
             {
                 CurrentView = FactsVm;
                 CurrentHeader = "Факты";
             });
 
-            SupportViewCommand = new RelayCommand(o =>
+            SupportViewCommand = new CoreRelayCommand(o =>
             {
                 CurrentView = SupportVm;
                 CurrentHeader = "Поддержка";
             });
+        }
+
+        private void ModelValueChanged(object sender, string valueName, object oldValue, object newValue)
+        {
+            switch (valueName)
+            {
+                case nameof(ModelClass.StringValue): SearchText = (string)newValue; break;
+            }
+        }
+
+        protected override void PropertyNewValue<T>(ref T fieldProperty, T newValue, string propertyName)
+        {
+            base.PropertyNewValue(ref fieldProperty, newValue, propertyName);
+
+            switch (propertyName)
+            {
+                case nameof(SearchText): model.SendValue(nameof(ModelClass.StringValue), SearchText); break;
+            }
         }
     }
 }

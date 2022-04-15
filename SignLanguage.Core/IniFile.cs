@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SignLanguage.Core
 {
-    class IniFile
+    public class IniFile
     {
         string Path; //Имя файла
 

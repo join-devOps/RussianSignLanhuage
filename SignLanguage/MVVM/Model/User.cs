@@ -2,7 +2,7 @@
 
 namespace SignLanguage.MVVM.Model
 {
-    class User : ObservableObject
+    class User : CorePropertyChanged
     {
         public static bool isDev { get; set; } = false;
     }

@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace SignLanguage.Core
 {
-    class RelayCommand : ICommand
+    public class CoreRelayCommand : ICommand
     {
         private Action<object> _execute;
         private Func<object, bool> _canExecute;
@@ -14,7 +14,7 @@ namespace SignLanguage.Core
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
+        public CoreRelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
             _execute = execute;
             _canExecute = canExecute;

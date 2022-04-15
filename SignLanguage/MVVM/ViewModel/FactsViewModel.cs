@@ -3,30 +3,30 @@ using System.Windows;
 
 namespace SignLanguage.MVVM.ViewModel
 {
-    class FactsViewModel : ObservableObject
+    class FactsViewModel : CorePropertyChanged
     {
-        private RelayCommand showDuel;
-        public RelayCommand ShowDuel
+        private CoreRelayCommand showDuel;
+        public CoreRelayCommand ShowDuel
         {
-            get => showDuel ?? (showDuel = new RelayCommand(o => 
+            get => showDuel ?? (showDuel = new CoreRelayCommand(o => 
             {
                 GetItem = 0;
             }));
         }
 
-        private RelayCommand showFact;
-        public RelayCommand ShowFact
+        private CoreRelayCommand showFact;
+        public CoreRelayCommand ShowFact
         {
-            get => showFact ?? (showFact = new RelayCommand(o =>
+            get => showFact ?? (showFact = new CoreRelayCommand(o =>
             {
                 GetItem = 1;
             }));
         }
 
-        private RelayCommand showHelp;
-        public RelayCommand ShowHelp
+        private CoreRelayCommand showHelp;
+        public CoreRelayCommand ShowHelp
         {
-            get => showHelp ?? (showHelp = new RelayCommand(o =>
+            get => showHelp ?? (showHelp = new CoreRelayCommand(o =>
             {
                 GetItem = 2;
             }));
