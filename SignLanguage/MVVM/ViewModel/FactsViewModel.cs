@@ -1,4 +1,5 @@
 ﻿using SignLanguage.Core;
+using SignLanguage.Core.Domain;
 using System.Windows;
 
 namespace SignLanguage.MVVM.ViewModel
@@ -32,7 +33,23 @@ namespace SignLanguage.MVVM.ViewModel
             }));
         }
 
-        
+        private CoreRelayCommand showBrouserF;
+        public CoreRelayCommand ShowBrouserF
+        {
+            get => showBrouserF ?? (showBrouserF = new CoreRelayCommand(o =>
+            {
+                Link.OpenInBrowser("https://surdo.me/?ysclid=l1u8ilskwf");
+            }));
+        }
+
+        private CoreRelayCommand showBrouserS;
+        public CoreRelayCommand ShowBrouserS
+        {
+            get => showBrouserS ?? (showBrouserS = new CoreRelayCommand(o =>
+            {
+                Link.OpenInBrowser("https://www.spreadthesign.com/ru.ru/search/");
+            }));
+        }
 
         private byte getItem;
         public byte GetItem

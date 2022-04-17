@@ -139,9 +139,16 @@
             <TextBlock Text="Источники, которые использую:"
                        Style="{StaticResource SelectedColorForeground}"
                        FontSize="18"/>
-            <TextBox Height="25" Width="250" Text="1. https://surdo.me/?ysclid=l1u8ilskwf"/>
-            <TextBox Height="25" Width="250" Text="2. https://www.spreadthesign.com/ru.ru/search/"/>
-        </StackPanel>
 
+            <Button Height="35" Width="150"
+                    Content="Словарь"
+                    Style="{StaticResource WordsButtonTheme}"
+                    Command="{Binding ShowBrouserF}"/>
+
+            <Button Height="35" Width="150"
+                    Content="SpreadTheSign"
+                    Style="{StaticResource WordsButtonTheme}"
+                    Command="{Binding ShowBrouserS}"/>
+        </StackPanel>
     </Grid>
 </UserControl>
