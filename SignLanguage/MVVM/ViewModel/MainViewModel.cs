@@ -8,13 +8,13 @@ namespace SignLanguage.MVVM.ViewModel
         private readonly ModelClass model;
 
         IniFile INI = new IniFile("config.ini");
-        public CoreRelayCommand HomeViewCommand { get; set; }
-        public CoreRelayCommand RussianAlphabetViewCommand { get; set; }
-        public CoreRelayCommand WordsViewCommand { get; set; }
-        public CoreRelayCommand TestViewCommand { get; set; }
-        public CoreRelayCommand SettingViewCommand { get; set; }
-        public CoreRelayCommand FactsViewCommand { get; set; }
-        public CoreRelayCommand SupportViewCommand { get; set; }
+        public CoreRelayCommand HomeViewCommand { get; }
+        public CoreRelayCommand RussianAlphabetViewCommand { get; }
+        public CoreRelayCommand WordsViewCommand { get; }
+        public CoreRelayCommand TestViewCommand { get; }
+        public CoreRelayCommand SettingViewCommand { get; }
+        public CoreRelayCommand FactsViewCommand { get; }
+        public CoreRelayCommand SupportViewCommand { get; }
 
         public HomeViewModel HomeVm { get; set; }
         public RussianAlphabetViewModel RussianAlphabetVm { get; set; }
@@ -85,7 +85,7 @@ namespace SignLanguage.MVVM.ViewModel
 
             HomeViewCommand = new CoreRelayCommand(o =>
             {
-                CurrentView = HomeViewCommand;
+                CurrentView = HomeVm;
                 CurrentHeader = "Избранное";
             });
 

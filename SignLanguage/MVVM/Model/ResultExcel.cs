@@ -1,12 +1,24 @@
-﻿using System.Windows.Media;
+﻿using SignLanguage.Core;
+using System.Windows.Media;
 
 namespace SignLanguage.MVVM.Model
 {
-    class ResultExcel
+    class ResultExcel : CorePropertyChanged
     {
-        public byte ID { get; set; }
-        public string Title { get; set; }
-        public bool ResultBool { get; set; }
+        private string _Title;
+        public string Title
+        {
+            get => _Title;
+            set => SetProperty(ref _Title, value);
+        }
+
+        private bool _ResultBool;
+        public bool ResultBool
+        {
+            get => _ResultBool;
+            set => SetProperty(ref _ResultBool, value);
+        }
+
         public SolidColorBrush Color
         {
             get => !ResultBool ? Brushes.DarkRed : Brushes.LightGreen;

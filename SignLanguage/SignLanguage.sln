@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignLanguage.Images", "..\S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignLanguage.Core", "..\SignLanguage.Core\SignLanguage.Core.csproj", "{8BFF6788-ED4D-4903-B032-0F422607D134}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignLanguage.Math", "..\SignLanguage.Math\SignLanguage.Math.csproj", "{F46A32BC-3768-42E2-8B67-BC1B5BC5C210}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,14 @@ Global
 		{8BFF6788-ED4D-4903-B032-0F422607D134}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8BFF6788-ED4D-4903-B032-0F422607D134}.Release|x86.ActiveCfg = Release|Any CPU
 		{8BFF6788-ED4D-4903-B032-0F422607D134}.Release|x86.Build.0 = Release|Any CPU
+		{F46A32BC-3768-42E2-8B67-BC1B5BC5C210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F46A32BC-3768-42E2-8B67-BC1B5BC5C210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F46A32BC-3768-42E2-8B67-BC1B5BC5C210}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F46A32BC-3768-42E2-8B67-BC1B5BC5C210}.Debug|x86.Build.0 = Debug|Any CPU
+		{F46A32BC-3768-42E2-8B67-BC1B5BC5C210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F46A32BC-3768-42E2-8B67-BC1B5BC5C210}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F46A32BC-3768-42E2-8B67-BC1B5BC5C210}.Release|x86.ActiveCfg = Release|Any CPU
+		{F46A32BC-3768-42E2-8B67-BC1B5BC5C210}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

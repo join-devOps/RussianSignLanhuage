@@ -1,6 +1,6 @@
 C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Core\bin\Debug\SignLanguage.Core.dll
 C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Core\bin\Debug\SignLanguage.Core.pdb
+C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Core\obj\Debug\SignLanguage.Core.csproj.AssemblyReference.cache
 C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Core\obj\Debug\SignLanguage.Core.csproj.CoreCompileInputs.cache
 C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Core\obj\Debug\SignLanguage.Core.dll
 C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Core\obj\Debug\SignLanguage.Core.pdb
-C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Core\obj\Debug\SignLanguage.Core.csproj.AssemblyReference.cache

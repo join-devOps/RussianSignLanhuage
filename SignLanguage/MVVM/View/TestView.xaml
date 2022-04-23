@@ -11,8 +11,11 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <ContentControl Content="{Binding CurrentObject}"/>
+
         <StackPanel VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
+                    HorizontalAlignment="Center"
+                    Visibility="{Binding GetCommandsVisible}">
 
             <TextBlock Text="Выберите сложность"
                        Style="{StaticResource SelectedColorForeground}"
@@ -40,6 +43,7 @@
                     </Border.Background>
 
                     <Button FontSize="20"
+                            Command="{Binding TestEasyCommand}"
                             Content="Легко"
                             Style="{StaticResource WordsButtonTheme}"/>
                 </Border>
@@ -55,7 +59,8 @@
                         </LinearGradientBrush>
                     </Border.Background>
 
-                    <Button Foreground="White"
+                    <Button  Foreground="White"
+                             Command="{Binding TestMediumCommand}"
                              FontSize="20"
                              Content="Нормально"
                              Style="{StaticResource WordsButtonTheme}"/>
@@ -73,9 +78,10 @@
                     </Border.Background>
 
                     <Button Foreground="White"
-                             FontSize="20"
-                             Content="Сложно"
-                             Style="{StaticResource WordsButtonTheme}"/>
+                            Command="{Binding TestHellCommand}"
+                            FontSize="20"
+                            Content="Сложно"
+                            Style="{StaticResource WordsButtonTheme}"/>
                 </Border>
             </StackPanel>
         </StackPanel>

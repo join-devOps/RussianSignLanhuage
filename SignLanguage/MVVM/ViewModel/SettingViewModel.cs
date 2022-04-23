@@ -1,8 +1,8 @@
 ﻿using SignLanguage.Core;
 using SignLanguage.MVVM.Model;
 using SignLanguage.MVVM.Model.Interface;
-using System.Globalization;
-using System.Threading;
+using System.Diagnostics;
+using System.Windows;
 
 namespace SignLanguage.MVVM.ViewModel
 {
@@ -15,8 +15,15 @@ namespace SignLanguage.MVVM.ViewModel
         {
             get => commandDark ?? (commandDark = new CoreRelayCommand(o =>
             {
-                (App.Current as App).ChangeSkin(Skin.Dark);
-                INI.Write("DefaultSetting", "Color", "Dark");
+                MessageBoxResult reult = MessageBox.Show("Вы хотите сменить тему?", "Предупреждение", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+
+                if (reult == MessageBoxResult.OK)
+                {
+                    (App.Current as App).ChangeSkin(Skin.Dark);
+                    INI.Write("DefaultSetting", "Color", "Dark");
+                    Process.Start(Application.ResourceAssembly.Location);
+                    Application.Current.Shutdown();
+                }
             }));
         }
 
@@ -25,8 +32,15 @@ namespace SignLanguage.MVVM.ViewModel
         {
             get => commandSnow ?? (commandSnow = new CoreRelayCommand(o =>
             {
-                (App.Current as App).ChangeSkin(Skin.Snow);
-                INI.Write("DefaultSetting", "Color", "Snow");
+                MessageBoxResult reult = MessageBox.Show("Вы хотите сменить тему?", "Предупреждение", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+
+                if (reult == MessageBoxResult.OK)
+                {
+                    (App.Current as App).ChangeSkin(Skin.Snow);
+                    INI.Write("DefaultSetting", "Color", "Snow");
+                    Process.Start(Application.ResourceAssembly.Location);
+                    Application.Current.Shutdown();
+                }
             }));
         }
 

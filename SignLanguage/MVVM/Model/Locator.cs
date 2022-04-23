@@ -9,7 +9,6 @@ namespace SignLanguage.MVVM.Model
         public MainViewModel MainVM { get; }
         public RussianAlphabetViewModel RusAlphabetVM { get; }
         public WordsViewModel RusWordsVM { get; }
-        public HomeViewModel HomeVM { get; }
 
         public Locator()
         {

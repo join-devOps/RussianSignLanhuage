@@ -3,8 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:SignLanguage"
              xmlns:viewModel="clr-namespace:SignLanguage.MVVM.ViewModel"
+             xmlns:viewModelTest="clr-namespace:SignLanguage.MVVM.ViewModel.Test"
              xmlns:colors="clr-namespace:SignLanguage.MVVM.Model"
              xmlns:view="clr-namespace:SignLanguage.MVVM.View"
+             xmlns:viewTest="clr-namespace:SignLanguage.MVVM.View.Test"
              xmlns:model="clr-namespace:SignLanguage.MVVM.Model"
              StartupUri="MainWindow.xaml">
 
@@ -40,6 +42,18 @@
 
             <DataTemplate DataType="{x:Type viewModel:SupportViewModel}">
                 <view:SupportView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModelTest:TestEasyViewModel}">
+                <viewTest:TestEasyView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModelTest:TestMediumViewModel}">
+                <viewTest:TestMediumView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModelTest:TestHellViewModel}">
+                <viewTest:TestHellView/>
             </DataTemplate>
 
             <ResourceDictionary.MergedDictionaries>

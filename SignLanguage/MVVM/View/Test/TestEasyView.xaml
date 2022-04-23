@@ -7,17 +7,79 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="{Binding GetChar}"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                      Height="auto"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      ItemContainerStyle="{StaticResource TestListViewItemTheme}"
+                      ItemsSource="{Binding ResultList}"
+                      Visibility="{Binding SetHiddenResult}">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="Transparent">
+                        <WrapPanel>
+                            <Grid>
+                                <StackPanel Orientation="Horizontal"/>
+                            </Grid>
+                        </WrapPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Visibility="{Binding SetHiddenResult}">
+
+            <TextBlock Text="Результат"
+                       Style="{StaticResource SelectedColorForeground}"/>
+
+            <TextBlock Text="{Binding SumResult}"
+                           Style="{StaticResource SelectedColorForeground}"/>
+
+            <TextBlock Text="{Binding SumResultWithPercent}"
+                           Style="{StaticResource SelectedColorForeground}"/>
+        </StackPanel>
+
+        <StackPanel Grid.ColumnSpan="2"
+                    Visibility="{Binding SetHiddenCommands}">
+            
+            <TextBlock Text="{Binding GetChar}"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
-                   FontSize="64"
+                   FontSize="128"
                    Style="{StaticResource SelectedColorForeground}"/>
 
-        <Button Content="Следующее"
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+
+                <Button Content="Пропустить"
+                Command="{Binding SkipCommand}"
                 Height="50" Width="150"
                 VerticalAlignment="Bottom"
                 Margin="0, 0, 0, 50"
                 FontSize="24"
                 Style="{StaticResource ButtonTheme}"/>
+
+                <Button Content="Следующее"
+                Command="{Binding NextCommand}"
+                Height="50" Width="150"
+                VerticalAlignment="Bottom"
+                Margin="0, 0, 0, 50"
+                FontSize="24"
+                Style="{StaticResource ButtonTheme}"/>
+            </StackPanel>
+        </StackPanel>
+        
     </Grid>
 </UserControl>

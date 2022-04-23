@@ -385,6 +385,10 @@
       <Project>{77a5a403-ab7e-4098-9b1e-0e38c88527d2}</Project>
       <Name>SignLanguage.Images</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SignLanguage.Math\SignLanguage.Math.csproj">
+      <Project>{f46a32bc-3768-42e2-8b67-bc1b5bc5c210}</Project>
+      <Name>SignLanguage.Math</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

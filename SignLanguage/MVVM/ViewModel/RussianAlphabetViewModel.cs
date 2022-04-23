@@ -43,14 +43,13 @@ namespace SignLanguage.MVVM.ViewModel
             }
         }
 
-        private byte getSelectedIndex = 0;
+        private byte getSelectedIndex;
         public byte GetSelectedIndex
         {
             get => getSelectedIndex;
             set
             {
-                getSelectedIndex = value;
-                OnPropertyChanged("GetSelectedIndex");
+                SetProperty(ref getSelectedIndex, value);
                 OnPropertyChanged("HideButtonNext");
                 OnPropertyChanged("HideButtonBack");
             }
@@ -86,6 +85,7 @@ namespace SignLanguage.MVVM.ViewModel
         public RussianAlphabetViewModel(ModelClass model)
         {
             this.model = model;
+            GetSelectedIndex = 0;
         }
     }
 }

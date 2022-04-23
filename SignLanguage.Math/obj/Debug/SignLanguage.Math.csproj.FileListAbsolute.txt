@@ -1,0 +1,9 @@
+C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Math\bin\Debug\SignLanguage.Math.dll
+C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Math\bin\Debug\SignLanguage.Math.pdb
+C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Math\obj\Debug\SignLanguage.Math.csproj.AssemblyReference.cache
+C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Math\obj\Debug\SignLanguage.Math.csproj.CoreCompileInputs.cache
+C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Math\obj\Debug\SignLanguage.Math.dll
+C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Math\obj\Debug\SignLanguage.Math.pdb
+C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Math\bin\Debug\SignLanguage.Core.dll
+C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Math\bin\Debug\SignLanguage.Core.pdb
+C:\Users\ProderMe\Desktop\Projects\College\MainCollege\SignLanguage.Math\obj\Debug\SignLanguage.Math.csproj.CopyComplete
