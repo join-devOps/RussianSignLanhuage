@@ -24,9 +24,7 @@ namespace SignLanguage.Math
             int result = 0;
 
             foreach (bool list in listSum)
-            {
                 result += 5;
-            }
 
             return result / listSum.Count;
         }
@@ -34,7 +32,7 @@ namespace SignLanguage.Math
         public static float GetPercent(float sum, float maxSum)
         {
             if (sum != 0 && maxSum != 0)
-                return maxSum / sum;
+                return (sum / maxSum) * 100;
             else return 0;
         }
     }

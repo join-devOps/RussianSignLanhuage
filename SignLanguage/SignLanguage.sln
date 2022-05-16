@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignLanguage.Core", "..\Sig
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignLanguage.Math", "..\SignLanguage.Math\SignLanguage.Math.csproj", "{F46A32BC-3768-42E2-8B67-BC1B5BC5C210}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignLanguage.TEST", "..\SignLanguage.TEST\SignLanguage.TEST.csproj", "{39CA9868-84A4-428E-BC05-0C552FBFCD99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignLanguage.Style", "..\SignLanguage.Style\SignLanguage.Style.csproj", "{D5B30394-AD4F-439D-AA58-C138E95817A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,22 @@ Global
 		{F46A32BC-3768-42E2-8B67-BC1B5BC5C210}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F46A32BC-3768-42E2-8B67-BC1B5BC5C210}.Release|x86.ActiveCfg = Release|Any CPU
 		{F46A32BC-3768-42E2-8B67-BC1B5BC5C210}.Release|x86.Build.0 = Release|Any CPU
+		{39CA9868-84A4-428E-BC05-0C552FBFCD99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39CA9868-84A4-428E-BC05-0C552FBFCD99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39CA9868-84A4-428E-BC05-0C552FBFCD99}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{39CA9868-84A4-428E-BC05-0C552FBFCD99}.Debug|x86.Build.0 = Debug|Any CPU
+		{39CA9868-84A4-428E-BC05-0C552FBFCD99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39CA9868-84A4-428E-BC05-0C552FBFCD99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39CA9868-84A4-428E-BC05-0C552FBFCD99}.Release|x86.ActiveCfg = Release|Any CPU
+		{39CA9868-84A4-428E-BC05-0C552FBFCD99}.Release|x86.Build.0 = Release|Any CPU
+		{D5B30394-AD4F-439D-AA58-C138E95817A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5B30394-AD4F-439D-AA58-C138E95817A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5B30394-AD4F-439D-AA58-C138E95817A8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D5B30394-AD4F-439D-AA58-C138E95817A8}.Debug|x86.Build.0 = Debug|Any CPU
+		{D5B30394-AD4F-439D-AA58-C138E95817A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5B30394-AD4F-439D-AA58-C138E95817A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5B30394-AD4F-439D-AA58-C138E95817A8}.Release|x86.ActiveCfg = Release|Any CPU
+		{D5B30394-AD4F-439D-AA58-C138E95817A8}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

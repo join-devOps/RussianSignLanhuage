@@ -23,5 +23,10 @@ namespace SignLanguage.MVVM.Model
         {
             get => !ResultBool ? Brushes.DarkRed : Brushes.LightGreen;
         }
+
+        public int Level
+        {
+            get => ResultBool ? 5 : 2;
+        }
     }
 }

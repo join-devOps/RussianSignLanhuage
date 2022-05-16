@@ -110,31 +110,6 @@
                       SelectedIndex="{Binding GetSelectedIndex}"
                       SelectionMode="Single"
                       Height="auto"
-                      ItemsSource="{Binding WordsCollege}"
-                      SelectedItem="{Binding GetMedia}"
-                      Background="Transparent"
-                      BorderThickness="0"
-                      Grid.Row="2"
-                      Visibility="{Binding GetCollege}"
-                      ItemContainerStyle="{StaticResource WordFamilyListViewItemTheme}">
-
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Border Background="Transparent">
-                        <WrapPanel>
-                            <Grid>
-                                <StackPanel Orientation="Horizontal"/>
-                            </Grid>
-                        </WrapPanel>
-                    </Border>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
-        <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                      SelectedIndex="{Binding GetSelectedIndex}"
-                      SelectionMode="Single"
-                      Height="auto"
                       ItemsSource="{Binding WordsFamily}"
                       SelectedItem="{Binding GetMedia}"
                       Background="Transparent"
@@ -191,6 +166,31 @@
                       BorderThickness="0"
                       Grid.Row="2"
                       Visibility="{Binding GetSoftware}"
+                      ItemContainerStyle="{StaticResource WordFamilyListViewItemTheme}">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="Transparent">
+                        <WrapPanel>
+                            <Grid>
+                                <StackPanel Orientation="Horizontal"/>
+                            </Grid>
+                        </WrapPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                      SelectedIndex="{Binding GetSelectedIndex}"
+                      SelectionMode="Single"
+                      Height="auto"
+                      ItemsSource="{Binding WordsCollege}"
+                      SelectedItem="{Binding GetMedia}"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      Grid.Row="2"
+                      Visibility="{Binding GetCollege}"
                       ItemContainerStyle="{StaticResource WordFamilyListViewItemTheme}">
 
             <ListView.ItemTemplate>

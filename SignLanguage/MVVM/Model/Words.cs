@@ -7,18 +7,23 @@ namespace SignLanguage.MVVM.Model
     class Words : CorePropertyChanged
     {
         private string _Title;
-        public string Title 
+        public string Title
         {
             get => _Title;
             set => SetProperty(ref _Title, value);
         }
 
         private Uri _Media;
-        public Uri Media 
+        public Uri Media
         {
             get => _Media;
             set => SetProperty(ref _Media, value);
         }
+    }
+
+    class AllWordsList
+    {
+        public string Title { get; set; }
     }
 
     class WordsList
@@ -81,5 +86,8 @@ namespace SignLanguage.MVVM.Model
             new Words() { Title = "Документация",               Media = new Uri("Media/Software/4.wmv",  UriKind.Relative) },
             new Words() { Title = "Установить",                 Media = new Uri("Media/Software/5.wmv",  UriKind.Relative) },
             new Words() { Title = "Баг",                        Media = new Uri("Media/Software/6.wmv",  UriKind.Relative) }};
+        
+        public static List<Words> allWordsList = new List<Words>();
+
     }
 }

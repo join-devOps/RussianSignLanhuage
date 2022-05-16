@@ -57,11 +57,11 @@
             </DataTemplate>
 
             <ResourceDictionary.MergedDictionaries>
-                
-                <colors:Themes DarkSource ="Theme/DarkColor.xaml"
-                               SnowSource ="Theme/SnowColor.xaml"/>
 
-                <ResourceDictionary Source="Theme/SelectedTheme.xaml"/>
+                <colors:Themes DarkSource ="pack://application:,,,/SignLanguage.Style;component/Theme/DarkColor.xaml"
+                               SnowSource ="pack://application:,,,/SignLanguage.Style;component/Theme/SnowColor.xaml"/>
+
+                <ResourceDictionary Source="pack://application:,,,/SignLanguage.Style;component/Theme/SelectedTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>

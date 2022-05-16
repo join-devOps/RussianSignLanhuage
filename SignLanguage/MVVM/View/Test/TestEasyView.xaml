@@ -41,19 +41,22 @@
                     VerticalAlignment="Top"
                     Visibility="{Binding SetHiddenResult}">
 
-            <TextBlock Text="Результат"
-                       Style="{StaticResource SelectedColorForeground}"/>
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource SelectedColorForeground}">
+                    <Setter Property="FontSize" Value="24"/>
+                </Style>
+            </StackPanel.Resources>
 
-            <TextBlock Text="{Binding SumResult}"
-                           Style="{StaticResource SelectedColorForeground}"/>
+            <TextBlock Text="Результат"/>
 
-            <TextBlock Text="{Binding SumResultWithPercent}"
-                           Style="{StaticResource SelectedColorForeground}"/>
+            <TextBlock Text="{Binding SumResult}"/>
+
+            <TextBlock Text="{Binding SumResultWithPercent}"/>
         </StackPanel>
 
         <StackPanel Grid.ColumnSpan="2"
                     Visibility="{Binding SetHiddenCommands}">
-            
+
             <TextBlock Text="{Binding GetChar}"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
@@ -80,6 +83,6 @@
                 Style="{StaticResource ButtonTheme}"/>
             </StackPanel>
         </StackPanel>
-        
+
     </Grid>
 </UserControl>

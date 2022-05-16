@@ -26,9 +26,9 @@ namespace SignLanguage.MVVM.ViewModel.Test
             }
         }
 
-        public char GetChar
+        public string GetChar
         {
-            get => RusAlphabetList.rusAlphabets[SelectChar].Letter;
+            get => RusAlphabetList.rusAlphabets[SelectChar].Title;
         }
 
         private byte _SelectChar = 0;
@@ -123,7 +123,7 @@ namespace SignLanguage.MVVM.ViewModel.Test
         private string sumResWithPerc()
         {
             return GetResult.GetPercent(GetResult.GetSum(ResultList.Select(item => item.ResultBool).ToList()),
-                GetResult.GetMaxSum(ResultList.Select(item => item.ResultBool).ToList())).ToString("#.##");
+                GetResult.GetMaxSum(ResultList.Select(item => item.ResultBool).ToList())) + " %";
         }
     }
 }

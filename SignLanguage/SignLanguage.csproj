@@ -128,18 +128,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Theme\SelectedTheme.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Theme\DarkColor.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Theme\SnowColor.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MVVM\Model\Interface\IModel.cs" />
@@ -388,6 +376,10 @@
     <ProjectReference Include="..\SignLanguage.Math\SignLanguage.Math.csproj">
       <Project>{f46a32bc-3768-42e2-8b67-bc1b5bc5c210}</Project>
       <Name>SignLanguage.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SignLanguage.Style\SignLanguage.Style.csproj">
+      <Project>{d5b30394-ad4f-439d-aa58-c138e95817a8}</Project>
+      <Name>SignLanguage.Style</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

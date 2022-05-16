@@ -81,6 +81,24 @@ namespace SignLanguage.MVVM.ViewModel
             }
         }
 
+        
+        public byte GetMaxCount
+        {
+            get
+            {
+                if (SetLearning == 1)
+                    return (byte)WordsFamily.Count;
+                if (SetLearning == 2)
+                    return (byte)WordsLearning.Count;
+                if (SetLearning == 3)
+                    return (byte)WordsSoftware.Count;
+                if (SetLearning == 4)
+                    return (byte)WordsSoftware.Count;
+                else
+                    return (byte)WordsCollege.Count;
+            }
+        }
+
         public Visibility GetCollege
         {
             get => SetLearning == 0 ? Visibility.Visible : Visibility.Collapsed;
@@ -101,10 +119,10 @@ namespace SignLanguage.MVVM.ViewModel
             get => SetLearning == 3 ? Visibility.Visible : Visibility.Collapsed;
         }
 
-        //public Visibility HideButtonNext
-        //{
-        //    get => (GetSelectedIndex == GetMaxCount - 1) ? Visibility.Hidden : Visibility.Visible;
-        //}
+        public Visibility HideButtonNext
+        {
+            get => (GetSelectedIndex == GetMaxCount - 1) ? Visibility.Hidden : Visibility.Visible;
+        }
 
         public Visibility HideButtonBack
         {
@@ -130,19 +148,61 @@ namespace SignLanguage.MVVM.ViewModel
             }
         }
 
+        private List<Words> _WordsFamily;
         public List<Words> WordsFamily
         {
-            get => WordsList.wordsFamily.ToList();
+            get
+            {
+                List<Words> _WordsList = _WordsFamily;
+
+                if (SearchText != null)
+                    _WordsList = _WordsList.Where(item => item.Title.IndexOf(SearchText, System.StringComparison.OrdinalIgnoreCase) != -1).ToList();
+
+                return _WordsList;
+            }
+            set
+            {
+                SetProperty(ref _WordsFamily, value);
+                OnPropertyChanged("SearchText");
+            }
         }
 
+        private List<Words> _WordsLearning;
         public List<Words> WordsLearning
         {
-            get => WordsList.wordsLearning.ToList();
+            get
+            {
+                List<Words> _WordsList = _WordsLearning;
+
+                if (SearchText != null)
+                    _WordsList = _WordsList.Where(item => item.Title.IndexOf(SearchText, System.StringComparison.OrdinalIgnoreCase) != -1).ToList();
+
+                return _WordsList;
+            }
+            set
+            {
+                SetProperty(ref _WordsLearning, value);
+                OnPropertyChanged("SearchText");
+            }
         }
 
+        private List<Words> _WordsSoftware;
         public List<Words> WordsSoftware
         {
-            get => WordsList.wordsSoftware.ToList();
+            get
+            {
+                List<Words> _WordsList = _WordsSoftware;
+
+                if (SearchText != null)
+                    _WordsList = _WordsList.Where(item => item.Title.IndexOf(SearchText, System.StringComparison.OrdinalIgnoreCase) != -1).ToList();
+
+                return _WordsList;
+            }
+            set
+            {
+                SetProperty(ref _WordsSoftware, value);
+                OnPropertyChanged("SearchText");
+            }
         }
 
         private Words getMedia;
@@ -185,6 +245,9 @@ namespace SignLanguage.MVVM.ViewModel
             model.AllValueChanged();
 
             WordsCollege = WordsList.wordsCollege.ToList();
+            WordsFamily = WordsList.wordsFamily.ToList();
+            WordsLearning = WordsList.wordsLearning.ToList();
+            WordsSoftware = WordsList .wordsSoftware.ToList();
         }
 
         private void ModelValueChanged(object sender, string valueName, object oldValue, object newValue)
